@@ -32,11 +32,11 @@ const SongList = () => (
                     className="collection-item"
                     key={id}
                     >
-                        <span>{title}</span>
+                        <Link to={`/songs/${id}`}>{title}</Link>
                         <Mutation mutation={DELETE_SONG} key={id}>
                         {(deleteSong) => (
                             <i
-                                className="material-icons"
+                                className="material-icons material-icons"
                                 onClick={() => 
                                     deleteSong({ 
                                         variables: { id } ,

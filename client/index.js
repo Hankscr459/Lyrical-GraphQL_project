@@ -5,6 +5,7 @@ import ApolloClient from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
+import './styles/styles.scss'
 
 import App from './components/App'
 
