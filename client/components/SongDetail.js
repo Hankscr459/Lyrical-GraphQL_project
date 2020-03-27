@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { gql } from 'apollo-boost'
 import LyricCreate from './LyricCreate'
+import LyricList from './LyricList'
 
 const READ_SONG =gql`
 query SongQuery($id: ID!) {
     song(id: $id) {
         id
         title
+        lyrics {
+            id
+            content
+        }
     }
 }
 `
@@ -26,7 +31,8 @@ const SongDetail = ({match}) => (
                 <div>
                     <Link to='/'>Back</Link>
                     <h3>{song.title}</h3>
-                    <LyricCreate />
+                    <LyricList lyrics={song.lyrics}/>
+                    <LyricCreate songId={song.id}/>
                 </div>
             )
         }}
